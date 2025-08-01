@@ -82,15 +82,30 @@ export default function HomePage() {
           </div>
 
           {/* Right Section */}
-          <div className="flex justify-center md:justify-end animate-pop">
-            <Image
-              src={profilePic}
-              alt="Gaurav's profile"
-              width={320}
-              height={320}
-              className="rounded-full border-4 border-blue-300 shadow-xl"
-              priority
-            />
+          <div className="flex justify-center md:justify-end animate-pop relative">
+            {/* Animated Background Blob */}
+            <div
+              className="absolute inset-0 flex items-center justify-center pointer-events-none"
+              aria-hidden="true"
+            >
+              <div
+                className="h-80 w-80 md:h-72 md:w-72 rounded-3xl blur-2xl opacity-60 bg-gradient-to-tr from-blue-400 via-cyan-400 to-violet-400 animate-spin-slow"
+                style={{
+                  animationDuration: '8s',
+                }}
+              ></div>
+            </div>
+            {/* Profile Image with border */}
+            <div className="relative p-[3px] bg-gradient-to-tr from-blue-400 via-cyan-400 to-violet-400 rounded-2xl shadow-2xl">
+              <Image
+                src={profilePic}
+                alt="Gaurav's profile"
+                width={320}
+                height={320}
+                className="rounded-2xl bg-[#12213b] object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
       </div>
