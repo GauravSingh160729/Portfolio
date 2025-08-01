@@ -6,7 +6,7 @@ const projects = [
   {
     title: "Project One",
     description:
-      "A modern responsive website built with Next.js and Tailwind CSS. Showcasing smooth animations and clean UI.",
+      "Dice Game ",
     imageSrc: "/dice.png",
     techStack: ["Bootstrap", "Tailwind", "React"],
     projectLink: "https://dicegamebygaurav.netlify.app/"
@@ -14,7 +14,7 @@ const projects = [
   {
     title: "Project Two",
     description:
-      "E-commerce platform backend developed with Django and MySQL, featuring secure user authentication and API integration.",
+      "Worldatlas website",
     imageSrc: "/world.png",
     techStack: ["React", "API Integration"],
     projectLink: "https://worldatlasbygauravsingh.netlify.app/"
@@ -22,7 +22,7 @@ const projects = [
   {
     title: "Project Three",
     description:
-      "Interactive single-page app using React and JavaScript, with dynamic routing and optimized performance.",
+      "E-Commerce website",
     imageSrc: "/comm.png",
     techStack: ["React", "JavaScript", "CSS", "API"],
     projectLink: "https://worldstorebygaurav.netlify.app/"

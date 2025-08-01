@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import profilePic from '../public/Port.jpg';
+import profilePic from '../public/prooo.jpg';
 import { useEffect, useState } from 'react';
 
 import About from './about/page';
