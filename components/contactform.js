@@ -75,13 +75,14 @@ export default function ContactForm() {
         />
       </label>
 
-      <button
-        type="submit"
-        disabled={status.loading}
-        className="mt-4 bg-pink-500 hover:bg-pink-600 transition text-white font-semibold py-3 rounded-lg shadow-sm"
-      >
-        {status.loading ? 'Sending...' : 'Send Message'}
-      </button>
+    <button
+  type="submit"
+  disabled={status.loading}
+  className="mt-4 bg-[#1e3a8a] hover:bg-[#162e6c] transition text-white font-semibold py-3 rounded-lg shadow-sm"
+>
+  {status.loading ? 'Sending...' : 'Send Message'}
+</button>
+
 
       {status.success && <p className="mt-4 text-green-400 font-semibold">{status.success}</p>}
       {status.error && <p className="mt-4 text-red-400 font-semibold">Error: {status.error}</p>}
