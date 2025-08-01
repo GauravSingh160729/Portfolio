@@ -1,15 +1,13 @@
-// components/ContactForm.js
-
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState({ loading: false, success: null, error: null });
 
   const handleChange = (e) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
@@ -17,18 +15,18 @@ export default function ContactForm() {
     setStatus({ loading: true, success: null, error: null });
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       const data = await res.json();
 
-      if (!res.ok) throw new Error(data.error || 'Failed to send message');
+      if (!res.ok) throw new Error(data.error || "Failed to send message");
 
       setStatus({ loading: false, success: data.message, error: null });
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: "", email: "", message: "" });
     } catch (err) {
       setStatus({ loading: false, success: null, error: err.message });
     }
@@ -36,8 +34,11 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+
       <label className="flex flex-col text-sm font-semibold">
-        Name
+        <span>
+          Name<span className="text-red-500 ml-1">*</span>
+        </span>
         <input
           type="text"
           name="name"
@@ -50,7 +51,9 @@ export default function ContactForm() {
       </label>
 
       <label className="flex flex-col text-sm font-semibold">
-        Email
+        <span>
+          Email<span className="text-red-500 ml-1">*</span>
+        </span>
         <input
           type="email"
           name="email"
@@ -63,7 +66,9 @@ export default function ContactForm() {
       </label>
 
       <label className="flex flex-col text-sm font-semibold">
-        Message
+        <span>
+          Message<span className="text-red-500 ml-1">*</span>
+        </span>
         <textarea
           name="message"
           rows={5}
@@ -75,14 +80,13 @@ export default function ContactForm() {
         />
       </label>
 
-    <button
-  type="submit"
-  disabled={status.loading}
-  className="mt-4 bg-[#1e3a8a] hover:bg-[#162e6c] transition text-white font-semibold py-3 rounded-lg shadow-sm"
->
-  {status.loading ? 'Sending...' : 'Send Message'}
-</button>
-
+      <button
+        type="submit"
+        disabled={status.loading}
+        className="mt-4 bg-[#1e3a8a] hover:bg-[#162e6c] transition text-white font-semibold py-3 rounded-lg shadow-sm"
+      >
+        {status.loading ? "Sending..." : "Send Message"}
+      </button>
 
       {status.success && <p className="mt-4 text-green-400 font-semibold">{status.success}</p>}
       {status.error && <p className="mt-4 text-red-400 font-semibold">Error: {status.error}</p>}
